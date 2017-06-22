@@ -24,7 +24,7 @@ for k,v in player.items():
 #bir cümlede geçen harflerden tekrar belirli olanlarından kaç tane olduğunu bulacağız.
 letters=['ç','ğ','ü','ö','ş']
 #multi-line string için uzun string içeriğinin """ ve """ arasında yazılması gerekir.
-quote="""Şaşırtıcı bir hikayem var. Benim adım Guldan.
+quote="""Şaşırtıcı bir hikayem var! Dinlemek ister misiniz? Benim adım Guldan.
        Leksar kabilesinden geliyorum. Abim Şaman'ın baş koruyucusuyum.
        Bir şaolin rahibiyim. Bununla gurur duyuyor ve övünüyorum.
        Eskiden mağarada yaşardım. Sonra çimenlerde yaşamaya başladım.
@@ -43,7 +43,19 @@ for l in quote:
     if l in letters:
         founded[l]+=1 #eğer harf metinde geçiyorsa sayısını bir arttır
 
-for k,v in sorted(found.items()): #sorted ile dictionary'nin sıralanmış listesinde dolaşışır
+for k,v in sorted(founded.items()): #sorted ile dictionary'nin sıralanmış listesinde dolaşışır
         print(k," harfinden",v,"adet bulunmuştur")
 
-    
+#dictionary oluşturulduğunda key'leri de initialize edilmelidir. Aşağıdaki örnek kod parçasını açıp deneyin.
+#çalışmma zamanında hata alacaksınız.
+##chars=[",",".","'","?"]
+##founded_chars={}
+##for c in quote:
+##    if c in chars:
+##        founded_chars[c]+=1
+##
+##for k,v in sorted(founded_chars.items()):
+##    print(k,"sembolünden",v,"adet bulundu.")
+
+
+
