@@ -52,10 +52,13 @@ chars=[".",",","?","'","!"]
 founded_chars={}
 for c in quote:
     if c in chars:
-        if c in founded_chars: #eğer c key olarak founded_chars isimli dictionary'de varsa arttır
-            founded_chars[c]+=1
-        else: #yoksa ilk değerini atad
-            founded_chars[c]=1
+        founded_chars.setdefault(c,0) #varsayılan değeri setdefault metodu ile de oluşturabiliriz.
+        founded_chars[c]+=1
+        
+##        if c in founded_chars: #eğer c key olarak founded_chars isimli dictionary'de varsa arttır
+##            founded_chars[c]+=1
+##        else: #yoksa ilk değerini atad
+##            founded_chars[c]=1
 
 #bulunanların sayılarını yine sıralanmış bir dictionary ile yazdır
 for k,v in sorted(founded_chars.items()):
