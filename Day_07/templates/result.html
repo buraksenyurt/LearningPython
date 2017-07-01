@@ -1,0 +1,14 @@
+{% extends "basepage.html" %}
+{% block body %}
+
+<h2>{{ page_title }}</h2>
+<p>You submitted the following data:</p>
+<table>
+    <tr><td>First:</td><td>{{ first_value }}</td></tr>
+    <tr><td>Second:</td><td>{{ second_value }}</td></tr>
+</table>
+
+<p>Result</p>
+<h3>{{ sum_result }}</h3>
+
+{% endblock %}

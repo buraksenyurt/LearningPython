@@ -1,0 +1,15 @@
+{% extends 'basepage.html' %}
+{% block body %}
+
+<h2>{{ page_title }}</h2>
+
+<form method='POST' action='/sum'>
+<table>
+<p>Sum of two values</p>
+<tr><td>First Value:</td><td><input name="firstValue" type="TEXT" width="10"</td></tr>
+<tr><td>Second Value:</td><td><input name="secondValue" type="TEXT" width="10"</td></tr>
+</table>
+<p><input value="Calculate" type="SUBMIT"></p>
+</form>
+
+{% endblock %}
