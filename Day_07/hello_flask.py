@@ -10,7 +10,8 @@ render operasyonları için render_template
 sayfadan first_value, second value bilgilerini almak için request paketleri
 import edildi
 """
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
+
 app=Flask(__name__)
 
 
@@ -18,14 +19,14 @@ app=Flask(__name__)
 #decorator ile bir fonksiyon kodunu değiştirmeden çalışma zamanı davranışını düzenleyebiliriz
 #app.route ile / root klasörüne gelen talepleri karşılamaktayız.
 @app.route('/')
-def entry_page()->'html':
-    return render_template('einstein.html',page_title='Wellcome to Little Einstein Project')
+def entry_page() -> 'html':
+    return render_template('einstein.html', page_title='Wellcome to Little Einstein Project')
 
 
-@app.route('/sum',methods=['POST']) #post metoduna cevap verecek
-def sum()->'html':
-    x=int(request.form['firstValue'])
-    y=int(request.form['secondValue'])
-    return render_template('result.html',page_title='Calculation result',sum_result=(x+y),first_value=x,second_value=y,)
+@app.route('/sum', methods=['POST'])  # post metoduna cevap verecek
+def sum() -> 'html':
+    x = int(request.form['firstValue'])
+    y = int(request.form['secondValue'])
+    return render_template('result.html', page_title='Calculation result', sum_result=(x + y), first_value=x, second_value=y)
 
 app.run(debug=True) #debug True sayesinde komut satırından çalışma zamanı loglarını anlık olarak izleyebiliriz
