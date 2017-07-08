@@ -10,14 +10,23 @@ render operasyonları için render_template
 sayfadan first_value, second value bilgilerini almak için request paketleri
 import edildi
 """
-from flask import Flask, render_template,request
-app=Flask(__name__)
+from flask import Flask, render_template,request,redirect
+app=Flask(__name__) #__name__ değeri güncel etkin modülü işaret eder.
+
+
+###/ için gelen talepler /einstein'a yönlendirilecekler.
+##@app.route('/')
+##def hello() ->'302': #http 302 döndürüyoruz ve redirect işlemi gerçekleştiriyoruz.    
+##    return redirect('/einstein')
 
 
 # @ ile yapılan tanımlama function decorators olarak geçmektedir
 #decorator ile bir fonksiyon kodunu değiştirmeden çalışma zamanı davranışını düzenleyebiliriz
-#app.route ile / root klasörüne gelen talepleri karşılamaktayız.
+#app.route ile /einstien root klasörüne gelen talepleri karşılamaktayız.
+
+#aslında yukarıda yapılan 302 yönlendirmesi yerine @app.route'u birden fazla da kullanabiliriz.
 @app.route('/')
+@app.route('/einstein')
 def entry_page()->'html':
     return render_template('einstein.html',page_title='Wellcome to Little Einstein Project')
 
