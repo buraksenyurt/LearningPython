@@ -13,6 +13,11 @@ import edildi
 from flask import Flask, render_template,request,redirect
 app=Flask(__name__) #__name__ değeri güncel etkin modülü işaret eder.
 
+#loglama yapan bir fonksiyon
+def log_request(req: 'flask_request',res:str)->None:
+    with open('einstein.log','a') as log:
+        print(req,res,file=log)
+
 
 ###/ için gelen talepler /einstein'a yönlendirilecekler.
 ##@app.route('/')
@@ -35,6 +40,8 @@ def entry_page()->'html':
 def sum()->'html':
     x=int(request.form['firstValue'])
     y=int(request.form['secondValue'])
-    return render_template('result.html',page_title='Calculation result',sum_result=(x+y),first_value=x,second_value=y,)
+    result=x+y
+    log_request(request,result)
+    return render_template('result.html',page_title='Calculation result',sum_result=result,first_value=x,second_value=y,)
 
 app.run(debug=True) #debug True sayesinde komut satırından çalışma zamanı loglarını anlık olarak izleyebiliriz
