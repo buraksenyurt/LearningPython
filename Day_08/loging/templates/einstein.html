@@ -1,0 +1,15 @@
+{% extends 'basepage.html' %}
+{% block body %}
+
+<h2>{{ page_title }}</h2>
+
+<form method='POST' action='/getcirclespace'>
+<table>
+<p>Find Circle Space</p>
+<tr><td>What's R?</td><td><input name="r_value" type="TEXT" width="10"</td></tr>
+<tr><td colspan="2">Pi value come from math.pi</td></tr>
+</table>
+<p><input value="Find but first guess" type="SUBMIT"></p>
+</form>
+
+{% endblock %}

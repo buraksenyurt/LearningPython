@@ -17,7 +17,7 @@ app=Flask(__name__) #__name__ değeri güncel etkin modülü işaret eder.
 def log_request(req: 'flask_request',res:str)->None:
     with open('einstein.log','a') as log:
         #print(req,res,file=log)
-        print(req.form,req.remote_addr,req.user_agent,res,file=log,end='|')
+        print(req.form,req.remote_addr,req.user_agent,res,file=log,sep='|')
 
 ###/ için gelen talepler /einstein'a yönlendirilecekler.
 ##@app.route('/')

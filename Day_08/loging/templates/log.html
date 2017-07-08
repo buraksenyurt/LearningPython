@@ -1,0 +1,22 @@
+{% extends 'basepage.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }} </h2>
+
+<table>
+	<tr>
+		 {% for title in row_titles %}
+			<th>{{title}}</th>
+		 {% endfor %}
+	</tr>
+	{% for row in log_data %}
+		<tr>
+			{% for item in row %}
+				<td>{{item}}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
