@@ -10,7 +10,7 @@ render operasyonları için render_template
 sayfadan first_value, second value bilgilerini almak için request paketleri
 import edildi
 """
-from flask import Flask, render_template,request,redirect
+from flask import Flask, render_template,request,redirect,escape
 app=Flask(__name__) #__name__ değeri güncel etkin modülü işaret eder.
 
 #loglama yapan bir fonksiyon
@@ -41,7 +41,15 @@ def sum()->'html':
     x=int(request.form['firstValue'])
     y=int(request.form['secondValue'])
     result=x+y
-    log_request(request,result)
+    log_request(request,str(result))
     return render_template('result.html',page_title='Calculation result',sum_result=result,first_value=x,second_value=y,)
+
+
+#log içeriğini tarayıcıdan göstermek için kullanılacak
+@app.route('/viewlog')
+def view_log()->str:
+    with open('einstein.log') as log:
+        content=log.read() #tüm dosya içeriğini okur
+    return escape(content) #logdaki < > gibi render adımında işleri bozacak karakterler yerine &gt; &lt; ler ekler
 
 app.run(debug=True) #debug True sayesinde komut satırından çalışma zamanı loglarını anlık olarak izleyebiliriz
